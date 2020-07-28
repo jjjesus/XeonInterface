@@ -90,11 +90,8 @@ Interfaces are depicted in Figure \ref{fig:inteface}.  Details of each interface
 \subsection{SATA (local boot flash)}
 \label{section:sata}
 
-This SATA interface is to the Linux boot image.  The K3 application will not access this image, but, an entry in \texttt{/etc/services.d} starts a service called \texttt{CSWMain} which is a shim program that loads the K3 application from the External SSD (Section \ref{section:sata2}).
+This SATA interface is to the Linux boot image and initial ram disk.  The K3 application does not use this interface. An entry in \texttt{/etc/services.d} in the initial ram disk starts a K3 application called \texttt{CSWMain} which is a shim program that loads the K3 application from the External SSD (Section \ref{section:sata2}).
 
-
-\subsubsection{Setting up SATA (local boot flash)}
-\label{section:setup_sata}
 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % sata2 (external ssd)
