@@ -61,7 +61,8 @@
 %%%%%%%%%%%%%%%%% Start of Body %%%%%%%%%%%%%%%%%%%%%%%%
 \section{Scope}
 \subsection{Purpose}
-This document is describes interfaces to the Xeon-D SoC of the XES Xpedite7674 Single Board Computer as planned for MFRFS K3.
+This document is describes interfaces to the Xeon-D SoC of
+the XES Xpedite7674 Single Board Computer as planned for MFRFS K3.
 
 \subsection{References}
 \begin{enumerate}
@@ -72,7 +73,8 @@ This document is describes interfaces to the Xeon-D SoC of the XES Xpedite7674 S
 
 \section{Interfaces}
 
-Interfaces are depicted in Figure \ref{fig:inteface}.  Details of each interface are provided in subsections below.
+Interfaces are depicted in Figure \ref{fig:inteface}.  Details of each
+interface are provided in subsections below.
 
 \begin{figure}[H]
 \begin{center}
@@ -90,7 +92,14 @@ Interfaces are depicted in Figure \ref{fig:inteface}.  Details of each interface
 \subsection{SATA (local boot flash)}
 \label{section:sata}
 
-This SATA interface is to the Linux boot image and initial ram disk.  The K3 application does not use this interface. An entry in \texttt{/etc/services.d} in the initial ram disk starts a K3 application called \texttt{CSWMain} which is a shim program that loads the K3 application from the External SSD (Section \ref{section:sata2}).
+This SATA interface is to the Linux boot image and initial ram disk.
+The K3 application does not use this interface.
+The only tie between the Linux boot image and the K3 application is 
+an entry in \texttt{/etc/services.d} that starts a K3 executable called
+\texttt{CSWMain}.
+\texttt{CSWMain} is a shim program that loads configuration files
+and libraries from the External SSD (Section \ref{section:sata2}) and
+launches them.
 
 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
