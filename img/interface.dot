@@ -1,0 +1,99 @@
+digraph G {
+    node [shape=rect style=filled
+         fontcolor=white fontsize=12 fontname="Helvetica Bold"]
+    edge [style=solid color="#777777"]
+
+    // Main processor
+    //
+    XeonD         [fillcolor="#08427b" label="Xeon-D"]
+
+    // Externals
+    //
+    ssd [fillcolor="#438dd5" label="External SSD"]
+    scim [fillcolor="#438dd5" label="SCIM"]
+    bootf [fillcolor="#FF0000" label="Local Boot Flash" ]
+    pps [fillcolor="#438dd5" label="1 PPS" ]
+    switch_console [fillcolor="#438dd5" label="Switch Consle" ]
+    vme_signals [fillcolor="#438dd5" label="VME signals"]
+
+    sf2_network [shape=ellipse fillcolor="#438dd5" label="SF2 network\n(serial ports to 4 ABEUs)"]
+    priv_network [shape=ellipse fillcolor="#438dd5" label="private network"]
+    trui [shape=ellipse fillcolor="#438dd5" label="Tactical GUI"]
+    abeus [shape=ellipse fillcolor="#438dd5" label="ABEUs (4)"]
+
+    pub_network [shape=ellipse fillcolor="#44BB44" label="Public Network" ]
+
+    c2 [shape=ellipse fillcolor="#44BB44" label="Third Party C2" ]
+
+    // Connectors
+    //
+    sata2
+                [fillcolor=white
+                style="filled,setlinewidth(0)"
+                fontcolor=black fontname="Helvetica" shape=plaintext label="SATA (2)"]
+    pcie
+                [fillcolor=white
+                style="filled,setlinewidth(0)"
+                fontcolor=black fontname="Helvetica" shape=plaintext label="PCIe"]
+
+    sata
+                [fillcolor=white
+                style="filled,setlinewidth(0)"
+                fontcolor=black fontname="Helvetica" shape=plaintext label="SATA"]
+
+    uart
+                [fillcolor=white
+                style="filled,setlinewidth(0)"
+                fontcolor=black fontname="Helvetica" shape=plaintext]
+
+    uart2
+                [fillcolor=white
+                style="filled,setlinewidth(0)"
+                fontcolor=black fontname="Helvetica" shape=plaintext]
+
+    gpio
+                [fillcolor=white
+                style="filled,setlinewidth(0)"
+                fontcolor=black fontname="Helvetica" shape=plaintext label="GPIO Pin 134"]
+
+    gpio_xra
+                [fillcolor=white
+                style="filled,setlinewidth(0)"
+                fontcolor=black fontname="Helvetica" shape=plaintext label="GPIO (XRA)"]
+
+    eth_pub
+                [fillcolor=white
+                style="filled,setlinewidth(0)"
+                fontcolor=black fontname="Helvetica" shape=plaintext label="eth_pub"]
+
+    eth_priv
+                [fillcolor=white
+                style="filled,setlinewidth(0)"
+                fontcolor=black fontname="Helvetica" shape=plaintext label="eth_priv"]
+
+    XeonD -> sata [dir=none]
+    XeonD -> sata2 [dir=none]
+    XeonD -> pcie [dir=none]
+    XeonD -> uart [dir=none]
+    XeonD -> uart2 [dir=none]
+    XeonD -> gpio [dir=none]
+    XeonD -> gpio_xra [dir=none]
+    XeonD -> eth_pub [dir=none]
+    XeonD -> eth_priv [dir=none]
+
+    sata -> bootf [dir=none]
+    sata2 -> ssd [dir=none]
+    pcie -> scim [dir=none]
+    uart -> scim [dir=none]
+    uart2 -> switch_console [dir=none]
+    gpio -> pps [dir=none]
+    gpio_xra -> vme_signals
+    eth_pub -> pub_network [dir=none]
+    eth_priv -> priv_network [dir=none]
+
+    pub_network -> c2
+    scim -> sf2_network
+    priv_network -> trui
+    priv_network -> abeus
+}
+
