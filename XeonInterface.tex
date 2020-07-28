@@ -69,6 +69,7 @@ the XES Xpedite7674 Single Board Computer as planned for MFRFS K3.
     \item XPedite7674 Users Manual Revision C (Extreme Engineering Solutions, February 1, 2018) \label{ref:board_man}
     \item XIt1088 User’s Manual Revision A (Extreme Engineering Solutions, May 29, 2019) \label{ref:rtm_man}
     \item XPEDITE7674 Schematic Diagram SCH90030490 Revision C (Extreme Engineering Solutions, February 28, 2020) \label{ref:schematic}
+    \item Mercury Systems TRRUST-Stor SSD MSD256/512 and MDR256/512 (Mercury Systems, July 25, 2016) \label{ref:mercurty_ssd}
 \end{enumerate}
 
 \section{Interfaces}
@@ -95,8 +96,8 @@ interface are provided in subsections below.
 This SATA interface is to the Linux boot image and initial ram disk.
 The K3 application does not use this interface.
 The only tie between the Linux boot image and the K3 application is 
-an entry in \texttt{/etc/services.d} that starts a K3 executable called
-\texttt{CSWMain}.
+an entry in the initial ram disk in \texttt{/etc/services.d} that
+starts a K3 executable called \texttt{CSWMain}.
 \texttt{CSWMain} is a shim program that loads configuration files
 and libraries from the External SSD (Section \ref{section:sata2}) and
 launches them.
@@ -109,6 +110,14 @@ launches them.
 \subsection{SATA (External SSD)}
 \label{section:sata2}
 
+An External Solid-State Drive (SSD) is the Mercury Systems TRRUST-Stor SSD MSD512 Self-Encrypted Drive mounted in a 3-U carrier in Slot 8 of the VPX chassis.  The Xeon-D has a SATA connection to this SSD through the VPX backplane and uses the serial port interface through the SCIM (Section \ref{section:sata2}) to send key information to unlock the SSD. 
+%%%
+\vspace{0.8cm}
+
+\textcolor{red}{\textbf{Question for Nick:} Do you think we need to
+continue using a Self-Encrypted Drive like the Mercury TRRUST-Stor?}
+
+%%%
 
 \end{document}
 
