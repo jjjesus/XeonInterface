@@ -18,7 +18,7 @@ digraph G {
 
     sf2_network [shape=ellipse fillcolor="#438dd5" label="SF2 network\n(serial ports to 4 ABEUs)"]
     priv_network [shape=ellipse fillcolor="#438dd5" label="private network"]
-    trui [shape=ellipse fillcolor="#438dd5" label="Tactical GUI"]
+    trui [shape=ellipse fillcolor="#438dd5" label="Tactical GUI (laptop)"]
     abeus [shape=ellipse fillcolor="#438dd5" label="ABEUs (4)"]
 
     pub_network [shape=ellipse fillcolor="#44BB44" label="Public Network" ]
@@ -30,7 +30,7 @@ digraph G {
     sata2
                 [fillcolor=white
                 style="filled,setlinewidth(0)"
-                fontcolor=black fontname="Helvetica" shape=plaintext label="SATA (2)"]
+                fontcolor=black fontname="Helvetica" shape=plaintext label="SATA2"]
     pcie
                 [fillcolor=white
                 style="filled,setlinewidth(0)"
@@ -44,32 +44,32 @@ digraph G {
     uart
                 [fillcolor=white
                 style="filled,setlinewidth(0)"
-                fontcolor=black fontname="Helvetica" shape=plaintext]
+                fontcolor=black fontname="Helvetica" shape=plaintext label="UART"]
 
     uart2
                 [fillcolor=white
                 style="filled,setlinewidth(0)"
-                fontcolor=black fontname="Helvetica" shape=plaintext]
+                fontcolor=black fontname="Helvetica" shape=plaintext label="UART2"]
 
     gpio
                 [fillcolor=white
                 style="filled,setlinewidth(0)"
-                fontcolor=black fontname="Helvetica" shape=plaintext label="GPIO Pin 134"]
+                fontcolor=black fontname="Helvetica" shape=plaintext label="GPIO\nPins BV16/BN22"]
 
     gpio_xra
                 [fillcolor=white
                 style="filled,setlinewidth(0)"
-                fontcolor=black fontname="Helvetica" shape=plaintext label="GPIO (XRA)"]
+                fontcolor=black fontname="Helvetica" shape=plaintext label="GPIO\n(XRA)"]
 
     eth_pub
                 [fillcolor=white
                 style="filled,setlinewidth(0)"
-                fontcolor=black fontname="Helvetica" shape=plaintext label="eth_pub"]
+                fontcolor=black fontname="Helvetica" shape=plaintext label="Ethernet\n(public)"]
 
     eth_priv
                 [fillcolor=white
                 style="filled,setlinewidth(0)"
-                fontcolor=black fontname="Helvetica" shape=plaintext label="eth_priv"]
+                fontcolor=black fontname="Helvetica" shape=plaintext label="Ethernet\n(private)"]
 
     XeonD -> sata [dir=none]
     XeonD -> sata2 [dir=none]
