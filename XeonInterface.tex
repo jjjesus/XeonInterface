@@ -110,9 +110,17 @@ launches them.
 \subsection{SATA (External SSD)}
 \label{section:sata2}
 
-An External Solid-State Drive (SSD) is the Mercury Systems TRRUST-Stor SSD MSD512 Self-Encrypted Drive mounted in a 3-U carrier in Slot 8 of the VPX chassis.  The Xeon-D has a SATA connection to this SSD through the VPX backplane and uses the serial port interface through the SCIM (Section \ref{section:sata2}) to send key information to unlock the SSD. 
+An External Solid-State Drive (SSD) is the Mercury Systems TRRUST-Stor SSD MSD512 Self-Encrypted Drive mounted in a 3-U carrier in Slot 8 of the VPX chassis.  The Xeon-D has a SATA connection to this SSD through the VPX backplane and uses the serial port interface through the SCIM (Figure \ref{fig:ssd}) to send key information to unlock the SSD. 
 %%%
 \vspace{0.8cm}
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=0.3\textwidth]{img/ssd}
+\caption{External SSD, Self-Encrypted}
+\label{fig:ssd}
+\end{center}
+\end{figure}
 
 \textcolor{red}{\textbf{Question for Nick:} Do you think we need to
 continue using a Self-Encrypted Drive like the Mercury TRRUST-Stor?}

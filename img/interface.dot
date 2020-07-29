@@ -9,21 +9,21 @@ digraph G {
 
     // Externals
     //
-    ssd [fillcolor="#438dd5" label="External SSD"]
+    ssd [fillcolor="#438dd5" label="External\nSSD"]
     scim [fillcolor="#438dd5" label="SCIM"]
-    bootf [fillcolor="#FF0000" label="Local Boot Flash" ]
+    bootf [fillcolor="#FF8800" label="Local\nBoot Flash" ]
     pps [fillcolor="#438dd5" label="1 PPS" ]
-    switch_console [fillcolor="#438dd5" label="Switch Consle" ]
-    vme_signals [fillcolor="#438dd5" label="VME signals"]
+    switch_console [fillcolor="#438dd5" label="Switch\nConsole" ]
+    vme_signals [fillcolor="#438dd5" label="VME\nsignals"]
 
     sf2_network [shape=ellipse fillcolor="#438dd5" label="SF2 network\n(serial ports to 4 ABEUs)"]
-    priv_network [shape=ellipse fillcolor="#438dd5" label="private network"]
+    priv_network [shape=ellipse fillcolor="#438dd5" label="internal\nnetwork"]
     trui [shape=ellipse fillcolor="#438dd5" label="Tactical GUI (laptop)"]
     abeus [shape=ellipse fillcolor="#438dd5" label="ABEUs (4)"]
 
-    pub_network [shape=ellipse fillcolor="#44BB44" label="Public Network" ]
+    pub_network [shape=ellipse fillcolor="#FF0000" label="External\nClassified Network" ]
 
-    c2 [shape=ellipse fillcolor="#44BB44" label="Third Party C2" ]
+    c2 [shape=ellipse fillcolor="#FF0000" label="Third Party C2" ]
 
     // Connectors
     //
@@ -78,8 +78,8 @@ digraph G {
     XeonD -> uart2 [dir=none]
     XeonD -> gpio [dir=none]
     XeonD -> gpio_xra [dir=none]
-    XeonD -> eth_pub [dir=none]
     XeonD -> eth_priv [dir=none]
+    XeonD -> eth_pub [dir=none]
 
     sata -> bootf [dir=none]
     sata2 -> ssd [dir=none]
@@ -88,12 +88,12 @@ digraph G {
     uart2 -> switch_console [dir=none]
     gpio -> pps [dir=none]
     gpio_xra -> vme_signals
-    eth_pub -> pub_network [dir=none]
     eth_priv -> priv_network [dir=none]
+    eth_pub -> pub_network [dir=none]
 
-    pub_network -> c2
     scim -> sf2_network
     priv_network -> trui
     priv_network -> abeus
+    pub_network -> c2
 }
 

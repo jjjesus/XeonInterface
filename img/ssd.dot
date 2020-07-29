@@ -1,7 +1,7 @@
 digraph structs {
     node [shape=record];
     struct1 [shape=record,label="{{<f0> Xeon}|{<f1> Serial|<f2> SATA}}"];
-    struct2 [shape=record,label="{{<f0> SCIM}|{<f1> Serial|<f2> SSD Key}}"];
+    struct2 [shape=record,label="{{<f0> SCIM}|{<f1> Serial|<f2> SSD Key store}}"];
     struct3 [shape=record,label="{{<f0> SSD}|{<f1> Encryption|<f2> SATA}}"];
 
     serial1 [fillcolor=white style="filled,setlinewidth(0)" fontcolor=black fontname="Helvetica" shape=plaintext label="unlock cmd"] 
