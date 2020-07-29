@@ -1,33 +1,21 @@
-digraph D {
-    subgraph cluster_c1 {
-        label = "Xeon-D SoC";
-        uart;
-        sata;
-    }
+digraph structs {
+    node [shape=record];
+    struct1 [shape=record,label="{{<f0> Xeon}|{<f1> Serial|<f2> SATA}}"];
+    struct2 [shape=record,label="{{<f0> SCIM}|{<f1> Serial|<f2> SSD Key}}"];
+    struct3 [shape=record,label="{{<f0> SSD}|{<f1> Encryption|<f2> SATA}}"];
 
-    subgraph cluster_c2 {
-        label = "External SSD";
-        disk;
-        encrypt [ label="Encryption\nModule" ];
-    }
+    serial1 [fillcolor=white style="filled,setlinewidth(0)" fontcolor=black fontname="Helvetica" shape=plaintext label="unlock cmd"] 
 
-    SCIM [shape=box fillcolor="#44BB44" label="SCIM" ]
+    serial2 [fillcolor=white style="filled,setlinewidth(0)" fontcolor=black fontname="Helvetica" shape=plaintext label="encrypt key"] 
 
-    serial1
-                [fillcolor=white
-                style="filled,setlinewidth(0)"
-                fontcolor=black fontname="Helvetica" shape=plaintext label="Serial"]
+    sata [fillcolor=white style="filled,setlinewidth(0)" fontcolor=black fontname="Helvetica" shape=plaintext label="SATA"] 
 
-    serial2
-                [fillcolor=white
-                style="filled,setlinewidth(0)"
-                fontcolor=black fontname="Helvetica" shape=plaintext label="Serial"]
+    struct1:f1 -> serial1;
+    serial1 -> struct2:f1;
+    struct2:f1 -> serial2;
+    serial2 -> struct3:f1;
 
-    uart->serial1
-    serial1->SCIM
-    SCIM->serial2
-    serial2->encrypt
+    struct1:f2 -> sata;
+    sata -> struct3:f2;
 
-    sata->disk [dir=none]
 }
-

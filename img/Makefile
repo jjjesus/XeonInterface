@@ -7,3 +7,7 @@ interface.png: interface.dot
 ssd.png: ssd.dot
 	dot -Tpng ssd.dot -ossd.png 
 
+clean:
+	rm -f interface.png ssd.png
+
+
