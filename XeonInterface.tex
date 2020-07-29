@@ -147,7 +147,8 @@ The purpose of this connection is for application software to act as a "terminal
 \subsection{PPS signal}
 \label{section:pps}
 
-The pulse-per-second signal is transferred from the ETalin/GPS through discrete lines on the SCIM and appears on a GPIO pin on the Xeon that is serviced by an IRQ.  I think this interrupt helps with the \textit{Chrony} facility (\textit{Chrony} is an alternative to \textit{NTP}).
+The pulse-per-second signal is transferred from the ETalin/GPS through discrete lines on the SCIM and appears on a GPIO pin on the Xeon that is serviced by an IRQ.
+This interrupt seems to be used by the \textit{Chrony} facility (\textit{Chrony} is an alternative to \textit{NTP}).
 
 
 \textcolor{red}{\textbf{Question for Nick:} Is it OK that this line does not go through the Kintex?}
@@ -160,7 +161,32 @@ The pulse-per-second signal is transferred from the ETalin/GPS through discrete 
 \subsection{Slot number and System ID}
 \label{section:slot_system_id}
 
-These signals are literally hard-wired static signals from the VME backplane that can be read on the Xeon through I\textsuperscript{2}C interface to an XRA GPIO Expander.  The slot id is inferred from the VME geographic address pins (which are ground in the backpland connector) and the System ID (K2 / XBEAU / K3) is inferred from strapping elsewhere on the backplane.
+These signals are literally hard-wired static signals from the VME backplane that can be read on the Xeon through I\textsuperscript{2}C interface to an XRA GPIO Expander.
+The slot id is inferred from the VME geographic address pins (which are grounded in the backplane connector) and the System ID (\textit{K2} / \textit{K3} / \textit{XBEAU}) is inferred from strapping elsewhere on the backplane.
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Internal Ethernet
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Internal Ethernet}
+\label{section:internal_ethernet}
+
+The Xeon is on the main board in the System Controller Unit (SCU).  Communication with the Antenna Arrays is through the Array Back-End Units (ABEU), and, the 2 main communications facilities are:
+
+\begin{enumerate}
+    \item Internal Ethernet network 
+    \item Low-speed serial communications through Smart Fusion 2 (SF2) FPGAs in each LRU.
+\end{enumerate}
+
+
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% External Ethernet
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{External Ethernet}
+\label{section:external_ethernet}
+
 
 \end{document}
 
