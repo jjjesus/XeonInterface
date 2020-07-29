@@ -14,7 +14,7 @@ digraph G {
     bootf [fillcolor="#FF8800" label="Local\nBoot Flash" ]
     pps [fillcolor="#438dd5" label="1 PPS" ]
     switch_console [fillcolor="#438dd5" label="Switch\nConsole" ]
-    vme_signals [fillcolor="#438dd5" label="VME\nsignals"]
+    slot_id_signals [fillcolor="#438dd5" label="VME\nSlot/ID"]
 
     sf2_network [shape=ellipse fillcolor="#438dd5" label="SF2 network\n(serial ports to 4 ABEUs)"]
     priv_network [shape=ellipse fillcolor="#438dd5" label="internal\nnetwork"]
@@ -87,7 +87,7 @@ digraph G {
     uart -> scim [dir=none]
     uart2 -> switch_console [dir=none]
     gpio -> pps [dir=none]
-    gpio_xra -> vme_signals
+    gpio_xra -> slot_id_signals
     eth_priv -> priv_network [dir=none]
     eth_pub -> pub_network [dir=none]
 
